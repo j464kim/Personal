@@ -33,3 +33,4 @@ group :development do
   gem 'spring'
 end
 
+#requires $bundle install
