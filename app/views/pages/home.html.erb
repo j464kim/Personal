@@ -1,12 +1,19 @@
 <div class = "jumbotron center">
 
 	<h1> Welcome to my web ! </h1>
+	<% if user_signed_in? %>
+	# do something
+
+	<% else %>
+
 
 <!-- 	<p> Go to <%= link_to "Google", "http://google.ca" %> </p>
  -->
 	<p> 
-		<%= link_to "Sing up", "#", class: "btn-default btn-lg" %> 
-		<%= link_to "Log in", "#", class: "btn btn-primary btn-lg" %>
+		<%= link_to "Sing up", new_user_registration_path, class: "btn-default btn-lg" %> 
+		<%= link_to "Log in", new_user_session_path, class: "btn btn-primary btn-lg" %>
 	</p>
+	<% end %>
+
 </div>
 
