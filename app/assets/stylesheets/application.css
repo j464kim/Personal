@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstra-sprockets";
+ @import "bootstrap.min";
+ @import "bootstrap_and_customization";
+ @import "bootstrap";
+ @import "creative";
+/* @import "clean-blog";
+*/
+ /*@import "bootstrap_and_customization";*/
+ @import "pages";
+ @import "utilites";

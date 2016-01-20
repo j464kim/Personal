@@ -4,8 +4,16 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Password validation
-  # validates :password, :presence => true,
-  #                    :on => :create,
-  #                    :format => {:with => /\A.*(?=.{10,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\@\#\$\%\^\&\+\=]).*\Z/ }
+
+  # attr_accessor :name, :email
+  
+  has_many :pins
+end
+
+
+class AddUserIdToPins < ActiveRecord::Migration
+  def change
+    add_column :pins, :user_id, :integer
+    add_index :pins, :user_id
+  end
 end

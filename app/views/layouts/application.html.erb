@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html large="en">
 <head>
-  <title>Pinteresting</title>
+
+	<title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
+<%= stylesheet_link_tag    'application', media: 'all',
+  'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+
+  <title>Personal</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-<!--   on mobile device
- -->   <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
 </head>
-
 <body>
 
 	<%= render 'layouts/header' %>
-  
-	<div class="container">
-		<!-- # No '%=' when you don't want it to show up in the actual page -->
-		<% flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class: "alert alert-info") %>
-		<% end %>
-		<%= yield %>
-	</div>
 
+	<p></p>
+<p></p>
+<p></p>
+	<!-- <div clsas= "main-page-content <%= controller.controller_name %>">
+
+	</div>  -->
+		<%= yield %>
+
+<%= render 'layouts/footer' %>
 	</body>
+	
 	</html>

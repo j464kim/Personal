@@ -1,6 +1,16 @@
-<hr>
-<hr>
-<h1>About myself..</h1>
+<h1>Waterloo Hybrid</h1>
+
+	<div class="container">
+		<!-- # No '%=' when you don't want it to show up in the actual page -->
+		<% flash.each do |name, msg| %>
+			<%= content_tag(:div, msg, class: "alert alert-info") %>
+		<% end %>
+
+		<%= yield %>
+	</div>
+<p>
+
+</p>
 
   <section class="no-padding" id="portfolio">
         <div class="container-fluid">
@@ -113,4 +123,3 @@
             </div>
         </div>
     </section>
-
