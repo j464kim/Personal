@@ -33,4 +33,8 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'thin'  
+end
+
 #requires $bundle install
