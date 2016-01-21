@@ -14,7 +14,7 @@
  *= require_self
  */
  
- @import "bootstrap.min";
+/* @import "bootstrap.min";*/
  @import "bootstrap_and_customization";
  @import "bootstrap";
  @import "creative";
