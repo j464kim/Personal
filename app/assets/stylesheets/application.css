@@ -1,9 +1,16 @@
 /*
-*= require_self
+
 *= require_tree .
+*= require_self
 
  */
 
-@import "bootstrap.scss";
-@import "clean-blog.scss";
+/*@import "bootstrap.scss";*/
+/*@import "clean-blog.scss";
 @import "creative.scss";
+*/
+config.assets.precompile += [
+      'hella-tite.css'
+    ]
+
+
