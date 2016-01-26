@@ -3,3 +3,7 @@
 *= require_tree .
 
  */
+
+@import "bootstrap.scss";
+@import "clean-blog.scss";
+@import "creative.scss";
