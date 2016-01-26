@@ -6,8 +6,8 @@ class PagesController < ApplicationController
   end
 
   def portfolio
-  	pdf_filename = File.join(Rails.root, "tmp/resume.pdf")
-  	send_file(pdf_filename, :filename => "resume.pdf", :disposition => "application/pdf")
+  	pdf_filename = File.join(Rails.root, "tmp/_resume.pdf")
+  	send_file(pdf_filename, :filename => "_resume.pdf", :disposition => "application/pdf")
   end
 
  
