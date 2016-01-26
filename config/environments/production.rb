@@ -83,9 +83,9 @@ Rails.application.configure do
   # Note to set this to your actual host 
   config.action_mailer.default_url_options = { host: 'jun-gwon.com' }
   config.assets.initialize_on_precompile = true
-  config.cache_classes = true
-  config.serve_static_assets = true
-  config.assets.compile = true
-  config.assets.digest = true
+  # config.cache_classes = true
+  # config.serve_static_assets = true
+  # config.assets.compile = true
+  # config.assets.digest = true
   Bundler.require(*Rails.groups(assets: %w(development test production)))
 end
