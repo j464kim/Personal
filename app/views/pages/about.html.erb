@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="https://en.wikipedia.org/wiki/Toronto" class="portfolio-box">
-                        <%= image_tag "toronto.jpg" %>
+                        <%= image_tag(image_path("toronto.jpg")) %>
                         <div class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="http://www.vaniercollege.qc.ca" class="portfolio-box">
-                        <%= image_tag "vanier.jpg" %>
+                        <%= image_tag(image_path("vanier.jpg")) %>
                         <div class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
@@ -88,7 +88,8 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="https://en.wikipedia.org/wiki/Korea" class="portfolio-box">
-                        <img_tag "korea.jpg" class="img-responsive" alt="">
+                        <!-- <img_tag "korea.jpg" class="img-responsive" alt=""> -->
+                        <%= image_tag "korea.jpg" %>
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -103,7 +104,9 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="https://en.wikipedia.org/wiki/Canada" class="portfolio-box">
-                        <img_tag "canada.png" class="img-responsive" alt="" />
+                        <!-- <img_tag "canada.png" class="img-responsive" alt="" /> -->
+                        
+                        <img src="/assets/canada.png" width="16" height="10" alt="Edit Entry" />
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
