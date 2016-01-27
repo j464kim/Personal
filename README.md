@@ -1,5 +1,5 @@
-# One Month Rails
+# Jun's Web App.
 
-This is the pinteresting sample application for [*One Month Rails](http://onemonthrails.com)
+This is JunGwon's first Web Application to house my portfolio. It is still on going project and not completed yet.
 
-by [JunGwon Kim](https://github.com/j464kim/pinteresting)
+http://jun-gwon.com | http://www.jun-gwon.com
