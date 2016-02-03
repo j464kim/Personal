@@ -21,8 +21,7 @@
                   <li><%= link_to "About", about_path %></li> 
                   <li><%= link_to "Portfolio", portfolio_path %></li>
                   
-                  <!-- <li><%= link_to "Sample", sample_path %></li> -->
-                    <!-- # log in & log out Setting -->
+         <!-- # log in & log out Setting -->
       <% if user_signed_in? %>
         <li><%= link_to "Account Setting", edit_user_registration_path %><li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
