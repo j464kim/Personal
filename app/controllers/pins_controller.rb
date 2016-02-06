@@ -40,7 +40,8 @@ class PinsController < ApplicationController
   def destroy
     @pin.destroy
     respond_to do |format|
-      redirect_to pins_url, notice: 'Pin was successfully destroyed.'
+      format.html {redirect_to pins_url, notice: 'Pin was successfully destroyed.'}
+      format.json { head :no_content }    
     end
   end
 
@@ -54,8 +55,9 @@ class PinsController < ApplicationController
       redirect_to pins_path, notice: "Not authorized to edit this pin" if @pin.nil?
     end
 
+    # what you permit for the user to be able to update in the form
     def pin_params
-      params.require(:pin).permit(:description)
+      params.require(:pin).permit(:description, :image)
     end
 end
 

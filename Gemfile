@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'devise', '~> 3.5.3'
+gem 'paperclip', '~> 4.2'
 #creating a group means we are only using database
 #called 'sqlite3' when in test case
 #:development means on our computer
