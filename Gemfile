@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.2.4'
 
 gem 'rails', '4.2.5'
 gem 'sass-rails', '~> 5.0'
@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'devise', '~> 3.5.3'
 gem 'paperclip', '~> 4.2'
+gem 'aws-sdk', '< 2.0'
 #creating a group means we are only using database
 #called 'sqlite3' when in test case
 #:development means on our computer
