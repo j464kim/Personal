@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get 'about' => "pages#about"
   get 'portfolio' => "pages#portfolio"
   get 'sample' => "pages#sample"
+  get 'contact' => "pages#contact"
 end
 
