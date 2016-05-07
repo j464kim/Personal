@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   get 'home' => "pages#home"
   root "pages#home"
   get 'about' => "pages#about"
+  get 'timeline' => 'timeline#index'
+  post '/write' => 'timeline#write'
+
   get 'portfolio' => "pages#portfolio"
   get 'sample' => "pages#sample"
   get 'contact' => "pages#contact"
-end
 
+end

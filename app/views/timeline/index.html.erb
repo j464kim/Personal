@@ -1,0 +1,19 @@
+<br>
+<h1>TIME-LINE<h1>
+
+<%= form_tag '/write', method: 'post' do%>
+<!-- use 'post' rather than 'post' since 'get' exposes content to submit on domains and cannot allow more than 250 letters
+to do this, routes.rb & timeline_controller.rb modified -->
+<!-- form_tag for default protection -->
+  <textarea name="content"></textarea> <br>
+  <input type = "submit">
+<% end %>
+
+<br>
+<ul>
+  <% @posts.each do |p| %>
+    <li><%= p.content %></li>
+  <% end %>
+</ul>
+
+<br><br>
