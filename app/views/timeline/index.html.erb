@@ -3,9 +3,9 @@
 
   <!-- use 'post' rather than 'post' since 'get' exposes content to submit on domains and cannot allow more than 250 letters
   to do this, routes.rb & timeline_controller.rb modified -->
-  <!-- form_tag for default protection -->
-<%= form_tag '/write', method: 'post' do%>
-  <textarea name="post_content"></textarea> <br>
+  <!-- form_tag (associated with 'post' method) for default protection -->
+<%= form_tag '/write', method: "post" do%>
+  <textarea name="post_content" placeholder="post here"></textarea> <br>
   <input type = "submit">
 <% end %>
 
@@ -14,21 +14,29 @@
   <% @posts.each do |p| %>
     <li>
       <%= p.content %>
+      <!-- get method for destroy, set post_id as a param to pass in destroy action-->
+      <a href = "/destroy?post_id=<%=p.id%>">Delete</a>
 
       <!-- Here it goes comments -->
       <%=form_tag '/comment' do%>
+        <!-- name = "here come parameter_name to pass in the action" -->
         <input type = "hidden" name = "post_id" value = "<%=p.id%>">
-        <input type = "text" name = "comment_content">
+        <input type = "text" name = "comment_content" placeholder="comment here">
         <input type = "submit">
       <% end %>
 
       <ol>
         <% p.comments.each do |c| %>
-          <li><%= c.msg %></li>
+          <li>
+            <%= c.msg %>
+            <a href = "/destroy_comment?comment_id=<%=c.id%>">Delete</a>
+          </li>
         <% end %>
       </ol><br>
     </li>
   <% end %>
-</ul>
+
+
+</ul> <!-- end of a set of a post & comments -->
 
 <br><br>
