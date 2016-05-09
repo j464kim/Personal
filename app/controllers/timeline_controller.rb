@@ -16,14 +16,39 @@
      redirect_to :timeline
    end
 
-   def destroy
+   def edit_post
+    #  find a post of the corresponding id and store it into an instance variable
+    # takes :post_id parameters from index page and store it into @post to be used in edit_post page
+    # this def behaves like a bridge
+     @post = Post.find(params[:post_id])
+   end
 
+   def edit_comment
+     @comment = Comment.find(params[:comment_id])
+   end
+
+   def update_post
+     post_to_be_updated = Post.find(params[:post_id])
+     post_to_be_updated.content = params[:post_content]
+     # save the change in the database
+     post_to_be_updated.save
+     redirect_to :timeline
+   end
+
+   def update_comment
+     comment_to_be_updated = Comment.find(params[:comment_id])
+     comment_to_be_updated.msg = params[:comment_content]
+     comment_to_be_updated.save
+     redirect_to :timeline
+   end
+
+   def destroy
     # delets all the comments that belong to post_to_be_destroyed
      post_to_be_destroyed = Post.find(params[:post_id])
      post_to_be_destroyed.comments.each do |comment|
-     b = Comment.find(comment.id)
-     b.destroy
-   end
+       comment_to_be_destroyed = Comment.find(comment.id)
+       comment_to_be_destroyed.destroy
+     end
 
      post_to_be_destroyed.destroy
      redirect_to :timeline

@@ -15,6 +15,7 @@
     <li>
       <%= p.content %>
       <!-- get method for destroy, set post_id as a param to pass in destroy action-->
+      <a href = "/edit_post?post_id=<%=p.id%>">Edit</a>
       <a href = "/destroy?post_id=<%=p.id%>">Delete</a>
 
       <!-- Here it goes comments -->
@@ -29,7 +30,9 @@
         <% p.comments.each do |c| %>
           <li>
             <%= c.msg %>
+            <a href = "/edit_comment?comment_id=<%=c.id%>">Edit</a>
             <a href = "/destroy_comment?comment_id=<%=c.id%>">Delete</a>
+
           </li>
         <% end %>
       </ol><br>
