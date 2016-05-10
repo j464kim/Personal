@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.1'
 
+gem 'whenever', :require => false
 gem 'rails', '4.2.5'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -17,7 +18,7 @@ gem 'aws-sdk', '< 2.0'
 #called 'sqlite3' when in test case
 #:development means on our computer
 group :development, :test do
-	gem 'sqlite3' #data_base that comes with Rails 
+	gem 'sqlite3' #data_base that comes with Rails
 end
 
 group :production do

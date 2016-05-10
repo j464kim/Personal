@@ -5,9 +5,9 @@
    end
 
    def write
-     Post.create(content: params[:post_content])
+     # save text through 'content' params and redirect back to the timeline page
+     pp = Post.create(content: params[:post_content])
      redirect_to :timeline
-    # save text through 'content' params and redirect back to the timeline page
    end
 
    def comment
@@ -46,8 +46,8 @@
     # delets all the comments that belong to post_to_be_destroyed
      post_to_be_destroyed = Post.find(params[:post_id])
      post_to_be_destroyed.comments.each do |comment|
-       comment_to_be_destroyed = Comment.find(comment.id)
-       comment_to_be_destroyed.destroy
+       comment_belonging = Comment.find(comment.id)
+       comment_belonging.destroy
      end
 
      post_to_be_destroyed.destroy
@@ -59,4 +59,5 @@
      comment_to_be_destroyed.destroy
      redirect_to :timeline
    end
+
 end # need this

@@ -5,10 +5,9 @@
   to do this, routes.rb & timeline_controller.rb modified -->
   <!-- form_tag (associated with 'post' method) for default protection -->
 <%= form_tag '/write', method: "post" do%>
-  <textarea name="post_content" placeholder="post here"></textarea> <br>
+  <textarea name="post_content" placeholder="post here"></textarea><br>
   <input type = "submit">
-<% end %>
-
+<% end %><br>
 <br>
 <ul>
   <% @posts.each do |p| %>
@@ -19,7 +18,8 @@
       <a href = "/destroy?post_id=<%=p.id%>">Delete</a>
 
       <!-- Here it goes comments -->
-      <%=form_tag '/comment' do%>
+      <%=form_tag '/comment
+      <input type = "submit>' do%>
         <!-- name = "here come parameter_name to pass in the action" -->
         <input type = "hidden" name = "post_id" value = "<%=p.id%>">
         <input type = "text" name = "comment_content" placeholder="comment here">
