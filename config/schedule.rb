@@ -1,6 +1,6 @@
 set :environment, "development"
 
-every 5.minutes do
+every 1.day do
   rake "delete:old_posts"
 end
 

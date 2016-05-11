@@ -1,4 +1,5 @@
  class TimelineController < ApplicationController
+   before_action :authenticate_user!, except: :index # requires login to write posts or comments
 
    def index
      @posts = Post.all.reverse # the most recent post on top
@@ -6,13 +7,14 @@
 
    def write
      # save text through 'content' params and redirect back to the timeline page
-     pp = Post.create(content: params[:post_content])
+     # current_user: user that is currently signed in to wrtie
+     Post.create(user_id: current_user.id, content: params[:post_content])
      redirect_to :timeline
    end
 
    def comment
     #  Creating comments accepts two parameters: post_id & comment_content
-     Comment.create(post_id: params[:post_id], msg: params[:comment_content])
+     Comment.create(user_id: current_user.id, post_id: params[:post_id], msg: params[:comment_content])
      redirect_to :timeline
    end
 

@@ -7,19 +7,18 @@
 <%= form_tag '/write', method: "post" do%>
   <textarea name="post_content" placeholder="post here"></textarea><br>
   <input type = "submit">
-<% end %><br>
+<% end %>
+
 <br>
 <ul>
   <% @posts.each do |p| %>
-    <li>
-      <%= p.content %>
+    <li><%=p.user.email%> : <%= p.content %><br>
       <!-- get method for destroy, set post_id as a param to pass in destroy action-->
       <a href = "/edit_post?post_id=<%=p.id%>">Edit</a>
       <a href = "/destroy?post_id=<%=p.id%>">Delete</a>
 
       <!-- Here it goes comments -->
-      <%=form_tag '/comment
-      <input type = "submit>' do%>
+      <%=form_tag '/comment', method: "post" do %>
         <!-- name = "here come parameter_name to pass in the action" -->
         <input type = "hidden" name = "post_id" value = "<%=p.id%>">
         <input type = "text" name = "comment_content" placeholder="comment here">
@@ -28,8 +27,7 @@
 
       <ol>
         <% p.comments.each do |c| %>
-          <li>
-            <%= c.msg %>
+          <li><%=c.user.email%> : <%= c.msg %><br>
             <a href = "/edit_comment?comment_id=<%=c.id%>">Edit</a>
             <a href = "/destroy_comment?comment_id=<%=c.id%>">Delete</a>
 
