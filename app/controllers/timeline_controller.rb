@@ -5,17 +5,32 @@
      @posts = Post.all.reverse # the most recent post on top
    end
 
+  def new
+    @post = Post.new
+  end
+
    def write
      # save text through 'content' params and redirect back to the timeline page
      # current_user: user that is currently signed in to wrtie
-     Post.create(user_id: current_user.id, content: params[:post_content])
-     redirect_to :timeline
+
+    #  Post.create(user_id: current_user.id, content: params[:post_content])
+    # redirect_to :timeline
+    @post = Post.new(content: params[:post_content])
+    @post.user = current_user
+    if @post.save
+    redirect_to :timeline
+     end
    end
 
    def comment
     #  Creating comments accepts two parameters: post_id & comment_content
-     Comment.create(user_id: current_user.id, post_id: params[:post_id], msg: params[:comment_content])
-     redirect_to :timeline
+    #  Comment.create(user_id: current_user.id, post_id: params[:post_id], msg: params[:comment_content])
+    #  redirect_to :timeline
+    @Comment = Comment.new( post_id: params[:post_id], msg: params[:comment_content])
+    @Comment.user = current_user
+    if @Comment.save
+      redirect_to :timeline
+    end
    end
 
    def edit_post

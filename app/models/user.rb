@@ -6,14 +6,13 @@ class User < ActiveRecord::Base
 
 
   # attr_accessor :name, :email
-
-  has_many :pins
   has_many :posts
   has_many :comments
+  has_many :pins
 end
 
 
-class AddUserIdToPins < ActiveRecord::Migration
+class AddUserIdToPosts < ActiveRecord::Migration
   def change
     add_column :pins, :user_id, :integer
     add_index :pins, :user_id
