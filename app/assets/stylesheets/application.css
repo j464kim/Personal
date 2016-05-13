@@ -13,4 +13,5 @@ config.assets.precompile += [
       'hella-tite.css'
       'bootstrap.scss'
       'creative.scss'
+      'timeline.scss'
     ]
