@@ -4,7 +4,7 @@
 @import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 @import url(http://fonts.googleapis.com/earlyaccess/hanna.css); // Korean letter fonts
 textarea[name=post_content] {
-	font-family: 'Indie Flower', 'Hanna', sans-serif;
+	$font-stack: 'Indie Flower', 'Hanna', sans-serif;
 	border-color: blue;
 	border-width: 2px;
 	background-color: white;
@@ -33,7 +33,7 @@ input[name=submit_comment] {
 	}
 }
 textarea[name=comment_content] {
-	font-family: 'Indie Flower', 'Hanna', sans-serif;
+  $font-stack: 'Indie Flower', 'Hanna', sans-serif;
 	border-color: red;
 	background-color: white;
 	width: 350px;
@@ -42,9 +42,9 @@ textarea[name=comment_content] {
 	padding: 15px;
 }
 pre {
+  $font-stack: 'Indie Flower', 'Hanna', sans-serif;
 	font-size: 1em;
-	font-family: 'Indie Flower', 'Hanna', sans-serif;
-	border-width: 2px;
+  border-width: 2px;
 	background-color: white;
 	width: 500px;
 	height: 140px;
