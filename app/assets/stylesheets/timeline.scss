@@ -1,8 +1,8 @@
 // Place all the styles related to the timeline controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
-@import url(http://fonts.googleapis.com/earlyaccess/hanna.css); // Korean letter fonts
+@import url('//fonts.googleapis.com/css?family=Indie+Flower');
+@import url('//fonts.googleapis.com/earlyaccess/hanna.css'); // Korean letter fonts
 
 textarea[name=post_content] {
   font-family: 'Indie Flower', 'Hanna', sans-serif;
