@@ -8,6 +8,7 @@
 /*@import "bootstrap.scss";*/
 /*@import "clean-blog.scss";
 @import "creative.scss";
+@import "timeline.scss";
 */
 config.assets.precompile += [
       'hella-tite.css'
