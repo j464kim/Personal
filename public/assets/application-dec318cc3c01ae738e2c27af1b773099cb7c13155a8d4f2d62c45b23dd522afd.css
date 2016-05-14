@@ -18536,8 +18536,8 @@ img::selection, img::-moz-selection {
 body {
   webkit-tap-highlight-color: #222;
 }
-@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
-@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+@import url("//fonts.googleapis.com/css?family=Indie+Flower");
+@import url("//fonts.googleapis.com/earlyaccess/hanna.css");
 /* line 7, /Users/Jun/Desktop/personal/app/assets/stylesheets/timeline.scss */
 textarea[name=post_content] {
   font-family: 'Indie Flower', 'Hanna', sans-serif;

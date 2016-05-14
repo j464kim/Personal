@@ -1,18 +1,22 @@
 <br>
-<h1>TIME-LINE<h1>
+<head>
+<h1 name="header">TIME-LINE<h1>
+</head>
 
   <!-- use 'post' rather than 'post' since 'get' exposes content to submit on domains and cannot allow more than 250 letters
   to do this, routes.rb & timeline_controller.rb modified -->
   <!-- form_tag (associated with 'post' method) for default protection -->
+<left_col>
 <%= form_tag '/write', method: "post" do%>
-  <textarea name="post_content" placeholder="post here"></textarea>
+  <textarea name="post_content" placeholder="post here"></textarea><br>
   <input type = "submit" name=submit_post>
 <% end %>
+</left_col>
 
-<br>
+<right_col>
 <ul>
   <% @posts.each do |p| %>
-    <li style="font-size: 0.5em"><%=p.user.email%>
+    <li name = "post_block"><%=p.user.email%>
       <!-- get method for destroy, set post_id as a param to pass in destroy action-->
       <a href = "/edit_post?post_id=<%=p.id%>"><button style="border-radius: 50%">Edit</button></a>
       <a href = "/destroy?post_id=<%=p.id%>"><button style="border-radius: 50%" >Delete</button></a>
@@ -34,10 +38,8 @@
           </li>
         <% end %>
       </ol><br>
-    </li>
+    </li><br>
   <% end %>
-
-
 </ul> <!-- end of a set of a post & comments -->
-
+</right_col>
 <br><br>

@@ -1358,7 +1358,7 @@ body {
 
 input, button, select, textarea {
   font-family: inherit;
-  font-size: inherit;
+  font-size: 1em;
   line-height: inherit;
 }
 
@@ -1842,7 +1842,7 @@ pre {
   border-radius: 4px;
   code {
     padding: 0;
-    font-size: inherit;
+    font-size: 1em;
     color: inherit;
     white-space: pre-wrap;
     background-color: transparent;

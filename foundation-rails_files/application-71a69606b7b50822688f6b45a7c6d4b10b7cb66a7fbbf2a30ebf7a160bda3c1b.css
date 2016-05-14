@@ -9388,7 +9388,7 @@ kbd {
   border-style: solid;
   border-width: 1px;
   font-family: "Consolas", "Menlo", "Courier", monospace;
-  font-size: inherit;
+  font-size: 1em;
   margin: 0;
   padding: 0.125rem 0.25rem 0;
   border-radius: 3px;

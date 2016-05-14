@@ -1685,7 +1685,7 @@ body {
 /* line 1360, /Users/Jun/Desktop/personal/app/assets/stylesheets/bootstrap.scss */
 input, button, select, textarea {
   font-family: inherit;
-  font-size: inherit;
+  font-size: 1em;
   line-height: inherit;
 }
 
@@ -2227,7 +2227,7 @@ pre {
 /* line 1844, /Users/Jun/Desktop/personal/app/assets/stylesheets/bootstrap.scss */
 pre code {
   padding: 0;
-  font-size: inherit;
+  font-size: 1em;
   color: inherit;
   white-space: pre-wrap;
   background-color: transparent;
@@ -10653,7 +10653,7 @@ body {
 /* line 1359, /Users/Jun/Desktop/personal/app/assets/stylesheets/bootstrap.scss */
 input, button, select, textarea {
   font-family: inherit;
-  font-size: inherit;
+  font-size: 1em;
   line-height: inherit;
 }
 
@@ -11195,7 +11195,7 @@ pre {
 /* line 1843, /Users/Jun/Desktop/personal/app/assets/stylesheets/bootstrap.scss */
 pre code {
   padding: 0;
-  font-size: inherit;
+  font-size: 1em;
   color: inherit;
   white-space: pre-wrap;
   background-color: transparent;
