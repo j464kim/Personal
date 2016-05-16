@@ -1,18 +1,18 @@
 /*
-
 *= require_tree .
 *= require_self
-
  */
 
-/*@import "bootstrap.scss";*/
-/*@import "clean-blog.scss";
-@import "creative.scss";
+/*
+@import "bootstrap.scss";
 @import "timeline.scss";
+@import 'global.scss';
+@import 'welcome.scss';
 */
 config.assets.precompile += [
       'hella-tite.css'
       'bootstrap.scss'
-      'creative.scss'
       'timeline.scss'
+      'welcome.scss'
+      'global.scss'
     ]
