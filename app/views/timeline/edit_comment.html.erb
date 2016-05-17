@@ -4,6 +4,6 @@
     <%= form_tag '/update_comment', method: "post" do%>
       <!-- name = "here come parameter_name to pass in the action" -->
       <input type = "hidden" name = "comment_id" value = "<%=@comment.id%>">
-      <textarea name ="comment_content" placeholder="comment here" value="<%=@comment.msg%>"></textarea>
+      <textarea name ="comment_content"><%=@comment.msg%></textarea>
       <input type = "submit">
     <% end %>

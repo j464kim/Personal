@@ -38,31 +38,31 @@ $green: #33CD99;
 	clear: both;
 }
 
-// button, .button {
-// 	border: none;
-// 	outline: none;
-// 	background: $green;
-// 	padding: 1rem 3.5rem;
-// 	border-radius: 2rem;
-// 	a {
-// 		color: white;
-// 		text-decoration: none;
-// 	}
-// }
-//
-// .button {
-// 	color: white;
-// 	margin: 2rem 0;
-// }
+g_button, .button {
+	border: none;
+	outline: none;
+	background: $green;
+	padding: 1rem 3.5rem;
+	border-radius: 2rem;
+	a {
+		color: white;
+		text-decoration: none;
+	}
+}
 
-// a {
-// 	color: $green;
-// 	text-decoration: none;
-// 	&:hover {
-// 		color: $dark_gray;
-// 	}
-// }
-//
+.button {
+	color: white;
+	margin: 2rem 0;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+	&:hover {
+		color: red;
+	}
+}
+
 // header {
 // 	background: $dark_gray;
 // 	position: fixed;

@@ -11,10 +11,11 @@
 
    def write
      # save text through 'content' params and redirect back to the timeline page
-     # current_user: user that is currently signed in to wrtie
+     # current_user : user that is currently signed in to wrtie
 
-    # before: Post.create(user_id: current_user.id, content: params[:post_content])
-    @post = Post.new(content: params[:post_content])
+    # before : Post.create(user_id: current_user.id, content: params[:post_content])
+    @post = Post.new(content: params[:post_content],
+                     title: params[:post_title])
     @post.user = current_user
     if @post.save
     redirect_to :timeline

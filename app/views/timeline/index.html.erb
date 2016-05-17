@@ -8,6 +8,7 @@
   <!-- form_tag (associated with 'post' method) for default protection -->
 <left_col>
 <%= form_tag '/write', method: "post" do%>
+  <input type="text" name="post_title" placeholder="title here">
   <textarea name="post_content" placeholder="post here"></textarea><br>
   <input type = "submit" name=submit_post>
 <% end %>
@@ -20,6 +21,7 @@
       <!-- get method for destroy, set post_id as a param to pass in destroy action-->
       <a href = "/edit_post?post_id=<%=p.id%>"><button style="border-radius: 50%">Edit</button></a>
       <a href = "/destroy?post_id=<%=p.id%>"><button style="border-radius: 50%" >Delete</button></a>
+      <p>title: <%= p.title %></p>
       <pre><%= p.content %></pre>
 
       <!-- Here it goes comments -->
