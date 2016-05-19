@@ -1,8 +1,11 @@
  class TimelineController < ApplicationController
    before_action :authenticate_user!, except: :index # requires login to write posts or comments
-
    def index
      @posts = Post.all.reverse # the most recent post on top
+   end
+
+   def show
+     @posts = Post.all.order("updated_at DESC") # another way to list them in descending order
    end
 
    def new
@@ -14,11 +17,10 @@
      # current_user : user that is currently signed in to wrtie
 
     # before : Post.create(user_id: current_user.id, content: params[:post_content])
-    @post = Post.new(content: params[:post_content],
-                     title: params[:post_title])
+    @post = Post.new(content: params[:post_content], title: params[:post_title])
     @post.user = current_user
     if @post.save
-    redirect_to :timeline
+    redirect_to '/timeline/show'
      end
    end
 
@@ -29,7 +31,7 @@
                             msg: params[:comment_content])
     @Comment.user = current_user
     if @Comment.save
-      redirect_to :timeline
+      redirect_to '/timeline/show'
     end
    end
 
@@ -50,7 +52,15 @@
        @post = Post.find(params[:post_id])
      else
        flash[:notice] = "You cannot edit this!"
-       redirect_to :timeline
+       redirect_to '/timeline/show'
+     end
+   end
+
+   def view_post
+     if current_user == Post.find(params[:post_id]).user
+        @post = Post.find(params[:post_id])
+     else
+        redirect_to '/timeline/show'
      end
    end
 
@@ -60,24 +70,25 @@
        @comment = Comment.find(params[:comment_id])
      else
        flash[:notice] = "You cannot edit this!"
-       redirect_to :timeline
+       redirect_to '/timeline/show'
      end
    end
 
    def update_post
 
      post_to_be_updated = Post.find(params[:post_id])
+     post_to_be_updated.title = params[:post_title]
      post_to_be_updated.content = params[:post_content]
      # save the change in the database
      post_to_be_updated.save
-     redirect_to :timeline
+     redirect_to '/timeline/show'
    end
 
    def update_comment
      comment_to_be_updated = Comment.find(params[:comment_id])
      comment_to_be_updated.msg = params[:comment_content]
      comment_to_be_updated.save
-     redirect_to :timeline
+     redirect_to '/timeline/show'
    end
 
    def destroy
@@ -92,10 +103,10 @@
        end
 
        post_to_be_destroyed.destroy
-       redirect_to :timeline
+       redirect_to '/timeline/show'
      else
        flash[:notice] = "You cannot destroy this!"
-       redirect_to :timeline
+       redirect_to '/timeline/show'
      end
    end
 
@@ -103,11 +114,12 @@
      # authenticate the comment writer
      if current_user == Comment.find(params[:comment_id]).user
        comment_to_be_destroyed = Comment.find(params[:comment_id])
+       @post_id = comment_to_be_destroyed.post_id
        comment_to_be_destroyed.destroy
-       redirect_to :timeline
+       redirect_to '/timeline/show'
      else
        flash[:notice] = "You cannot destroy this!"
-       redirect_to :timeline
+       redirect_to '/timeline/show'
      end
    end
 

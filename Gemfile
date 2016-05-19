@@ -14,9 +14,15 @@ gem 'bootstrap-sass'
 gem 'devise', '~> 3.5.3'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
+gem 'haml', '~> 4.0', '>= 4.0.7'
+gem 'simple_form', '~> 3.2', '>= 3.2.1'
+gem 'haml-rails', '~> 0.9.0'
+gem "binding_of_caller"
+gem 'better_errors', '~> 2.1', '>= 2.1.1'
 #creating a group means we are only using database
 #called 'sqlite3' when in test case
 #:development means on our computer
+
 group :development, :test do
 	gem 'sqlite3' #data_base that comes with Rails
 end

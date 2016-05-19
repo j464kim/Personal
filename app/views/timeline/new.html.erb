@@ -1,0 +1,6 @@
+<br/>
+<%= form_tag '/write', method: "post" do %>
+  <input name="post_title" placeholder="title here" type="text"></input>
+  <textarea name="post_content" placeholder="post here"></textarea>
+  <input name="submit_post" type="submit"></input>
+<% end %>

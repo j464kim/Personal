@@ -5,6 +5,18 @@
 @import url('//fonts.googleapis.com/earlyaccess/hanna.css'); // Korean letter fonts
 
 textarea{
+  &[name=post_title] {
+    font-family: 'Indie Flower', 'Hanna', sans-serif;
+    border-color: red;
+    background-color: white;
+    width: 70%;
+    height: 40px;
+    margin: 5px auto;
+    padding: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
   &[name=post_content] {
     font-family: 'Indie Flower', 'Hanna', sans-serif;
     border-color: blue;
@@ -21,7 +33,7 @@ textarea{
     font-family: 'Indie Flower', 'Hanna', sans-serif;
     border-color: red;
     background-color: white;
-    width: 70%;
+    width: 90%;
     height: 40px;
     margin: 5px auto;
     padding: 15px;
@@ -31,6 +43,7 @@ textarea{
 input {
   &[type=submit] {
     padding: 5px;
+    margin: 10px;
     font-size: 0.7em;
     transition: color 1s;
   }
@@ -42,17 +55,46 @@ input {
     background-color: rgba(255, 0, 0, 255);
     color: white;
   }
+  &[name=post_title] {
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 pre {
-  font-size: 1em;
-  font-family: 'Indie Flower', 'Hanna', sans-serif;
-  border-width: 2px;
-  background-color: white;
-  width: 90%;
-  height: 100px;
-  margin: 10px;
-  padding: 15px;
+  &[name=post_title] {
+    font-size: 1em;
+    font-family: 'Indie Flower', 'Hanna', sans-serif;
+    border-width: 2px;
+    background-color: white;
+    width: 90%;
+    height: 45px;
+    margin: 10px;
+    padding: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &[name=post_content]{
+    font-size: 1em;
+    font-family: 'Indie Flower', 'Hanna', sans-serif;
+    border-width: 2px;
+    background-color: white;
+    width: 90%;
+    height: 200px;
+    margin: 10px;
+    padding: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
 }
 
 h1[name=header] {
@@ -65,18 +107,15 @@ h1[name=header] {
 left_col {
   line-height: 80%;
   height: 100%;
-  width: 30%;
+  width: 40%;
   float: left;
   padding: 5px;
-  background-color: #f6f6f6;
   padding: 10px;
 }
 
 right_col {
-  line-height: 80%;
   background-color: white;
-  height: 100%;
-  width: 70%;
+  width: 60%;
   float: right;
   padding: 5px;
 }

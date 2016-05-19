@@ -6,7 +6,7 @@
   <!-- to let update action know which post to be updated, -->
   <input type="hidden" name="post_id" value="<%=@post.id%>">
   <!-- <%=@post.content%> displays original post content -->
-  <textarea name="title_content"><%=@post.title%></textarea><br>
+  <textarea name="post_title"><%=@post.title%></textarea><br>
   <textarea name="post_content"><%=@post.content%></textarea><br>
-  <input type = "submit">
+  <input type = "submit" >
 <% end %>
