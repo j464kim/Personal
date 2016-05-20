@@ -1,5 +1,6 @@
  class TimelineController < ApplicationController
-   before_action :authenticate_user!, except: :index # requires login to write posts or comments
+   before_action :authenticate_user!, except: [:show, :view_post] # requires login to write posts or comments
+
    def index
      @posts = Post.all.reverse # the most recent post on top
    end
@@ -26,13 +27,14 @@
 
    def comment
     #  Creating comments accepts two parameters: post_id & comment_content
-    # before: Comment.create(user_id: current_user.id, post_id: params[:post_id], msg: params[:comment_content])
-    @Comment = Comment.new( post_id: params[:post_id],
-                            msg: params[:comment_content])
-    @Comment.user = current_user
-    if @Comment.save
-      redirect_to '/timeline/show'
-    end
+   # before: Comment.create(user_id: current_user.id, post_id: params[:post_id], msg: params[:comment_content])
+   @post = Post.find(params[:post_id])
+   @comment = Comment.new(post_id: params[:post_id],
+                          msg: params[:comment_content])
+   @comment.user = current_user
+   if @comment.save
+     redirect_to :back
+   end
    end
 
    def edit_post
@@ -48,20 +50,17 @@
     #  end
 
     # authenticate the post writer
+    @post = Post.find(params[:post_id])
     if current_user == Post.find(params[:post_id]).user
        @post = Post.find(params[:post_id])
      else
        flash[:notice] = "You cannot edit this!"
-       redirect_to '/timeline/show'
+       render :view_post
      end
    end
 
    def view_post
-     if current_user == Post.find(params[:post_id]).user
-        @post = Post.find(params[:post_id])
-     else
-        redirect_to '/timeline/show'
-     end
+     @post = Post.find(params[:post_id])
    end
 
    def edit_comment
@@ -70,18 +69,17 @@
        @comment = Comment.find(params[:comment_id])
      else
        flash[:notice] = "You cannot edit this!"
-       redirect_to '/timeline/show'
+       redirect_to :back
      end
    end
 
    def update_post
-
      post_to_be_updated = Post.find(params[:post_id])
      post_to_be_updated.title = params[:post_title]
      post_to_be_updated.content = params[:post_content]
      # save the change in the database
      post_to_be_updated.save
-     redirect_to '/timeline/show'
+     redirect_to :back
    end
 
    def update_comment
@@ -89,9 +87,11 @@
      comment_to_be_updated.msg = params[:comment_content]
      comment_to_be_updated.save
      redirect_to '/timeline/show'
+    #  render "/view_post?post_id=<%=@post.id%>"
    end
 
    def destroy
+     @post = Post.find(params[:post_id])
      # authenticate the post writer
      if current_user == Post.find(params[:post_id]).user
       # delets all the comments that belong to post_to_be_destroyed
@@ -101,12 +101,11 @@
          comment_belonging = Comment.find(comment.id)
          comment_belonging.destroy
        end
-
        post_to_be_destroyed.destroy
        redirect_to '/timeline/show'
      else
        flash[:notice] = "You cannot destroy this!"
-       redirect_to '/timeline/show'
+       render :view_post
      end
    end
 
@@ -114,12 +113,11 @@
      # authenticate the comment writer
      if current_user == Comment.find(params[:comment_id]).user
        comment_to_be_destroyed = Comment.find(params[:comment_id])
-       @post_id = comment_to_be_destroyed.post_id
        comment_to_be_destroyed.destroy
-       redirect_to '/timeline/show'
+       redirect_to :back
      else
        flash[:notice] = "You cannot destroy this!"
-       redirect_to '/timeline/show'
+       redirect_to :back
      end
    end
 

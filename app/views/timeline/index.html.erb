@@ -25,12 +25,10 @@
       <pre><%= p.content %></pre>
 
       <!-- Here it goes comments -->
-      <%=form_tag '/comment', method: "post" do %>
         <!-- name = "here come parameter_name to pass in the action" -->
         <input type = "hidden" name = "post_id" value = "<%=p.id%>">
         <textarea name ="comment_content" placeholder="comment here"></textarea>
         <input type = "submit" name="submit_comment">
-      <% end %>
 
       <ol>
         <% p.comments.each do |c| %>

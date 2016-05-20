@@ -4,7 +4,7 @@
 <ul>
   <% @posts.each do |p| %>
   <a href = "/view_post?post_id=<%=p.id%>">
-    <h4>title : <i><b><%=p.title%></i></b></h4> shared by ID #<%=p.user_id%> -- about <%=time_ago_in_words(p.updated_at)%> ago</p>
+    <h4>Title : <i><b><%=p.title%></i></b></h4> Shared by ID #<%=p.user_id%> -- about <%=time_ago_in_words(p.updated_at)%> ago</p>
   </a><br>
   <% end %>
 </ul>

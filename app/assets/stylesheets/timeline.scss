@@ -68,7 +68,6 @@ input {
 
 pre {
   &[name=post_title] {
-    font-size: 1em;
     font-family: 'Indie Flower', 'Hanna', sans-serif;
     border-width: 2px;
     background-color: white;
@@ -80,8 +79,7 @@ pre {
     margin-left: auto;
     margin-right: auto;
   }
-  &[name=post_content]{
-    font-size: 1em;
+  &[name=post_content] {
     font-family: 'Indie Flower', 'Hanna', sans-serif;
     border-width: 2px;
     background-color: white;
@@ -93,8 +91,6 @@ pre {
     margin-left: auto;
     margin-right: auto;
   }
-
-
 }
 
 h1[name=header] {
