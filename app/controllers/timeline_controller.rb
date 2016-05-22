@@ -50,12 +50,11 @@
     #  end
 
     # authenticate the post writer
-    @post = Post.find(params[:post_id])
     if current_user == Post.find(params[:post_id]).user
        @post = Post.find(params[:post_id])
      else
        flash[:notice] = "You cannot edit this!"
-       render :view_post
+       redirect_to :back
      end
    end
 
@@ -74,51 +73,57 @@
    end
 
    def update_post
-     post_to_be_updated = Post.find(params[:post_id])
-     post_to_be_updated.title = params[:post_title]
-     post_to_be_updated.content = params[:post_content]
+     @post = Post.find(params[:post_id])
+     @post.title = params[:post_title]
+     @post.content = params[:post_content]
+     post_id = @post.id
      # save the change in the database
-     post_to_be_updated.save
-     redirect_to :back
+     @post.save
+     # passing a param value when redirect_to another action
+     redirect_to controller: 'timeline', action: 'view_post', post_id: @post.id
    end
 
    def update_comment
-     comment_to_be_updated = Comment.find(params[:comment_id])
-     comment_to_be_updated.msg = params[:comment_content]
-     comment_to_be_updated.save
-     redirect_to '/timeline/show'
-    #  render "/view_post?post_id=<%=@post.id%>"
+     @comment = Comment.find(params[:comment_id])
+     @comment.msg = params[:comment_content]
+     @comment.save
+     redirect_to controller: 'timeline', action: 'view_post', post_id: @comment.post_id
    end
 
    def destroy
      @post = Post.find(params[:post_id])
      # authenticate the post writer
      if current_user == Post.find(params[:post_id]).user
-      # delets all the comments that belong to post_to_be_destroyed
-       post_to_be_destroyed = Post.find(params[:post_id])
+      # delets all the comments that belong to @post
+       @post = Post.find(params[:post_id])
 
-       post_to_be_destroyed.comments.each do |comment|
+       @post.comments.each do |comment|
          comment_belonging = Comment.find(comment.id)
          comment_belonging.destroy
        end
-       post_to_be_destroyed.destroy
+       @post.destroy
        redirect_to '/timeline/show'
      else
        flash[:notice] = "You cannot destroy this!"
-       render :view_post
+       redirect_to :back
      end
    end
 
    def destroy_comment
      # authenticate the comment writer
      if current_user == Comment.find(params[:comment_id]).user
-       comment_to_be_destroyed = Comment.find(params[:comment_id])
-       comment_to_be_destroyed.destroy
+       @comment = Comment.find(params[:comment_id])
+       @comment.destroy
        redirect_to :back
      else
        flash[:notice] = "You cannot destroy this!"
        redirect_to :back
      end
    end
+
+   def post_params
+   params.require(:post).permit(:title, :link, :description, :image)
+   end
+
 
 end # need this
