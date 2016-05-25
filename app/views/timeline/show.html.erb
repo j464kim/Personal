@@ -5,7 +5,8 @@
   <% @posts.each do |p| %>
   <a href = "/view_post?post_id=<%=p.id%>">
     <%= image_tag p.image.url(:small) %>
-    <h4>Title : <i><b><%=p.title%></i></b></h4> Shared by ID #<%=p.user_id%> -- about <%=time_ago_in_words(p.updated_at)%> ago</p>
+    <h4>Title : <i><b><%=p.title%></i></b></h4> Shared by ID #<%=p.user_id%> -- about <%=time_ago_in_words(p.updated_at)%> ago
+    <p><b><%= p.comments.count %></b> comments</p>
   </a><br>
   <% end %>
 </ul>

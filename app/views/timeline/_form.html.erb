@@ -2,6 +2,7 @@
       <!-- get method for destroy, set post_id as a param to pass in destroy action-->
       <a href = "/edit_post?post_id=<%=@post.id%>"><button style="border-radius: 50%">Edit</button></a>
       <a href = "/destroy?post_id=<%=@post.id%>"><button style="border-radius: 50%" >Delete</button></a>
+
       <hr>
       <!-- Here it goes comments -->
       <%=form_tag '/comment', method: "post" do %>
@@ -19,7 +20,7 @@
 
       <right_col>
         <ol>
-          <% @post.comments.each do |c| %>
+          <% @comments.each do |c| %>
             <li><p>User ID #<%=c.user_id%> : <b><%= c.msg %></b></p>
               <a href = "/edit_comment?comment_id=<%=c.id%>" style="color: green">Edit</a>
               <a href = "/destroy_comment?comment_id=<%=c.id%>" style="color: red">Delete</a>

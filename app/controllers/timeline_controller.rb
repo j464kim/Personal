@@ -63,6 +63,7 @@
 
    def view_post
      @post = Post.find(params[:post_id])
+     @comments = Comment.where(post_id: @post)
    end
 
    def edit_comment
@@ -95,11 +96,12 @@
 
    def destroy
      @post = Post.find(params[:post_id])
+     @comments = Comment.where(post_id: @post)
      # authenticate the post writer
-     if current_user == Post.find(params[:post_id]).user
+     if current_user == @post.user
       # delets all the comments that belong to @post
 
-       @post.comments.each do |comment|
+       @comments.each do |comment|
          comment_belonging = Comment.find(comment.id)
          comment_belonging.destroy
        end
