@@ -19,6 +19,8 @@ gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'haml-rails', '~> 0.9.0'
 gem "binding_of_caller"
 gem 'better_errors', '~> 2.1', '>= 2.1.1'
+gem 'acts_as_votable', '~> 0.10.0'
+
 #creating a group means we are only using database
 #called 'sqlite3' when in test case
 #:development means on our computer

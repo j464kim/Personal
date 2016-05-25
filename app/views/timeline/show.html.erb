@@ -2,12 +2,17 @@
 <h1>Show Page</h1>
 <hr>
 <ul>
-  <% @posts.each do |p| %>
+  <% @post.each do |p| %>
   <a href = "/view_post?post_id=<%=p.id%>">
     <%= image_tag p.image.url(:small) %>
-    <h4>Title : <i><b><%=p.title%></i></b></h4> Shared by ID #<%=p.user_id%> -- about <%=time_ago_in_words(p.updated_at)%> ago
-    <p><b><%= p.comments.count %></b> comments</p>
-  </a><br>
+    <h4><u>Title : <i><b><%=p.title%></i></b></u></h4>
+  </a>
+  <p>
+    Shared by ID #<%=p.user_id%> -- about <%=time_ago_in_words(p.updated_at)%> ago<br>
+    <%= p.comments.count %> comments |
+    <%= p.get_upvotes.size %> Likes
+  </p>
+<br>
   <% end %>
 </ul>
 <button style=" margin: 10px"><%=link_to "NEW POST", 'new'%></button>

@@ -5,6 +5,18 @@
 @import url('//fonts.googleapis.com/earlyaccess/hanna.css'); // Korean letter fonts
 
 textarea{
+  &[name=title] {
+    font-family: 'Indie Flower', 'Hanna', sans-serif;
+    border-color: red;
+    background-color: white;
+    width: 70%;
+    height: 40px;
+    margin: 5px auto;
+    padding: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
   &[name=content] {
     font-family: 'Indie Flower', 'Hanna', sans-serif;
     border-color: blue;

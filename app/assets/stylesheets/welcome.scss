@@ -1,5 +1,5 @@
 div[id=banner] {
-	background-image: url(image_path("welcome_banner_image.jpg"));
+	background-image: url(image_path("6.jpg"));
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top center;
@@ -19,7 +19,7 @@ div[id=banner] {
 		p {
 			font-size: 1.5rem;
 			margin: 0 0 2.5rem 0;
-			color: rgba(250, 250, 250, 0.5);
+			color: rgba(250, 250, 250, 0.7);
 		}
 	}
 }
@@ -40,7 +40,7 @@ div[id=testimonial] {
 }
 
 div[id=callouts] {
-	background-image: url(image_path("callout_background.jpg"));
+	background-image: url(image_path("4.jpg"));
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top center;
@@ -62,7 +62,7 @@ div[id=callouts] {
 			margin-bottom: 0;
 		}
 		p {
-			color: rgba(250, 250, 250, 0.4);
+			color: rgba(250, 250, 250, 0.7);
 		}
 	}
 }

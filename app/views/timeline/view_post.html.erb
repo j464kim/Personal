@@ -1,13 +1,29 @@
 <br>
 <h1 name="header">VIEW POST #<%=@post.id%></h1>
 
-  <%= form_tag '/view_post', method: "post" do%>
+  <%= form_tag '/view_post', method: "post" do |p| %>
     <!-- to let update action know which post to be updated, -->
     <%= image_tag @post.image.url(:medium) %>
     <input type="hidden" name="post_id" value="<%=@post.id%>">
     <!-- <%=@post.content%> displays original post content -->
     <pre name="post_title"><%=@post.title%></pre>
     <pre name="post_content"><%=@post.content%></pre>
+    <%= link_to "Like", like_timeline_path(@post), method: :get %>
+    <%= link_to "Dislike", dislike_timeline_path(@post), method: :get %>
   <% end %>
+
+  <left_col>
+    <!-- get method for destroy, set post_id as a param to pass in destroy action-->
+    <a href = "/edit_post?post_id=<%=@post.id%>"><button style="border-radius: 50%">Edit</button></a>
+    <a href = "/destroy?post_id=<%=@post.id%>"><button style="border-radius: 50%" >Delete</button></a>
+  </left_col>
+  <right_col>
+    <p>
+      <%= @post.get_upvotes.size %> Likes
+      <%= @post.get_downvotes.size %> Dislikes
+    </p>
+
+  </right_col>
+  <hr>
 
 <%= render 'form' %>

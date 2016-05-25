@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-
   # attr_accessor :name, :email
   has_many :posts
   has_many :comments

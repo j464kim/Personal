@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   # resources :controller_name --> creates six different routes in your application, all mapping to the timeline controller
-  resources :timeline
+  resources :timeline do
+    member do
+      get "like", to: "timeline#upvote"
+      get "dislike", to: "timeline#downvote"
+    end
+  end
+
   devise_for :users
   get 'home' => "pages#home"
   root "pages#index"
