@@ -10,7 +10,7 @@
    end
 
    def new
-     @post = Post.new
+     @post = current_user.posts.build
    end
 
    def write
@@ -18,11 +18,14 @@
      # current_user : user that is currently signed in to wrtie
 
     # before : Post.create(user_id: current_user.id, content: params[:post_content])
-    @post = Post.new(content: params[:post_content], title: params[:post_title])
+    @post = current_user.posts.build(post_params)
+    # @post = Post.new(title: params[:post_title], content: params[:post_content], image: params[:image])
     @post.user = current_user
     if @post.save
-    redirect_to '/timeline/show'
-     end
+      redirect_to '/timeline/show'
+    else
+      render 'new'
+    end
    end
 
    def comment
@@ -95,7 +98,6 @@
      # authenticate the post writer
      if current_user == Post.find(params[:post_id]).user
       # delets all the comments that belong to @post
-       @post = Post.find(params[:post_id])
 
        @post.comments.each do |comment|
          comment_belonging = Comment.find(comment.id)
@@ -122,7 +124,11 @@
    end
 
    def post_params
-   params.require(:post).permit(:title, :link, :description, :image)
+   params.permit(:title, :content, :image)
+   end
+
+   def find_post
+     @post = Post.find(params[:post_id])
    end
 
 

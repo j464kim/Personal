@@ -3,39 +3,11 @@
 
   <%= form_tag '/view_post', method: "post" do%>
     <!-- to let update action know which post to be updated, -->
+    <%= image_tag @post.image.url(:medium) %>
     <input type="hidden" name="post_id" value="<%=@post.id%>">
     <!-- <%=@post.content%> displays original post content -->
     <pre name="post_title"><%=@post.title%></pre>
     <pre name="post_content"><%=@post.content%></pre>
   <% end %>
 
-  <ul>
-        <!-- get method for destroy, set post_id as a param to pass in destroy action-->
-        <a href = "/edit_post?post_id=<%=@post.id%>"><button style="border-radius: 50%">Edit</button></a>
-        <a href = "/destroy?post_id=<%=@post.id%>"><button style="border-radius: 50%" >Delete</button></a>
-        <hr>
-        <!-- Here it goes comments -->
-        <%=form_tag '/comment', method: "post" do %>
-          <!-- name = "here come parameter_name to pass in the action" -->
-          <input type = "hidden" name = "post_id" value = "<%=@post.id%>">
-          <left_col>
-            <%=form_tag '/comment', method: "post" do %>
-              <!-- name = "here come parameter_name to pass in the action" -->
-              <input type = "hidden" name = "post_id" value = "<%=@post.id%>">
-              <textarea name ="comment_content" placeholder="comment here"></textarea>
-              <input type = "submit" name="submit_comment" style="margin: 5px">
-            <% end %>
-          </left_col>
-        <% end %>
-
-        <right_col>
-          <ol>
-            <% @post.comments.each do |c| %>
-              <li><p>User ID #<%=c.user_id%> : <b><%= c.msg %></b></p>
-                <a href = "/edit_comment?comment_id=<%=c.id%>" style="color: green">Edit</a>
-                <a href = "/destroy_comment?comment_id=<%=c.id%>" style="color: red">Delete</a>
-              </li><br>
-            <% end %>
-          </ol><br>
-        </right_col><br>
-  </ul>
+<%= render 'form' %>
