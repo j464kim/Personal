@@ -45,15 +45,8 @@ class TimelineController < ApplicationController
   # takes :post_id parameters from index page and store it into @post to be used in edit_post page
   # this def behaves like a bridge
 
-
-  #  if current_user.id == params[:user_id]
-  #    @post = Post.find(params[:post_id])
-  #  else
-  #    puts "You cannot edit this post!"
-  #  end
-
   # authenticate the post writer
-  if current_user == Post.find(params[:post_id]).user
+   if current_user == Post.find(params[:post_id]).user
      @post = Post.find(params[:post_id])
    else
      flash[:notice] = "You cannot edit this!"
@@ -78,8 +71,8 @@ class TimelineController < ApplicationController
 
  def update_post
    @post = Post.find(params[:post_id])
-   @post.title = params[:post_title]
-   @post.content = params[:post_content]
+   @post.title = params[:title]
+   @post.content = params[:content]
    post_id = @post.id
    # save the change in the database
    @post.save
@@ -146,6 +139,5 @@ private
  def find_post
    @post = Post.find(params[:id])
  end
-
 
 end # need this
