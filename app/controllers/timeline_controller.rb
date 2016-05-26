@@ -126,11 +126,13 @@ class TimelineController < ApplicationController
  end
 
  def upvote
+   @post = Post.find(params[:id])
    @post.liked_by current_user
    redirect_to :back
  end
 
  def downvote
+   @post = Post.find(params[:id])
    @post.downvote_from current_user
    redirect_to :back
  end
@@ -142,7 +144,7 @@ private
  end
 
  def find_post
-   @post = Post.find(params[:post_id])
+   @post = Post.find(params[:id])
  end
 
 
