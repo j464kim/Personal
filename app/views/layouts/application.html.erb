@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html large="en">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 <head>
-
 	<title><%= yield(:title) %>Welcome to Jun's App!</title>
 <%= stylesheet_link_tag    'application', media: 'all',
   'data-turbolinks-track' => true %>
@@ -13,21 +13,21 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+  <div class="wrapper">
+		<%= render partial: 'layouts/header' %>
 
-	<%= render partial: 'layouts/header' %>
+			<p></p>
+			<p></p>
+			<p></p>
+			<!-- <div clsas= "main-page-content <%= controller.controller_name %>">
+			</div>  -->
+			<%= yield %>
 
-	<p></p>
-<p></p>
-<p></p>
-	<!-- <div clsas= "main-page-content <%= controller.controller_name %>">
-
-	</div>  -->
-		<%= yield %>
-
-<%= render 'layouts/footer' %>
+		<%= render 'layouts/footer' %>
+	</div>
 	</body>
-	
+
 	</html>

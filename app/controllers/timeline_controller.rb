@@ -46,12 +46,8 @@ class TimelineController < ApplicationController
   # this def behaves like a bridge
 
   # authenticate the post writer
-   if current_user == Post.find(params[:post_id]).user
      @post = Post.find(params[:post_id])
-   else
-     flash[:notice] = "You cannot edit this!"
-     redirect_to :back
-   end
+
  end
 
  def view_post

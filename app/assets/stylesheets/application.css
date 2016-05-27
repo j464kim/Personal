@@ -8,6 +8,8 @@
 @import "timeline.scss";
 @import 'global.scss';
 @import 'welcome.scss';
+@import 'home.scss';
+@import 'post.scss';
 */
 config.assets.precompile += [
       'hella-tite.css'
@@ -15,4 +17,6 @@ config.assets.precompile += [
       'timeline.scss'
       'welcome.scss'
       'global.scss'
+      'home.scss'
+      'post.scss'
     ]

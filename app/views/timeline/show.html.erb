@@ -1,18 +1,36 @@
-<br/>
+<br>
 <h1>Show Page</h1>
 <hr>
-<ul>
+
+<div id="posts">
   <% @post.each do |p| %>
-  <a href = "/view_post?post_id=<%=p.id%>">
-    <%= image_tag p.image.url(:small) %>
-    <h4><u>Title : <i><b><%=p.title%></i></b></u></h4>
-  </a>
-  <p>
-    Shared by ID #<%=p.user_id%> -- about <%=time_ago_in_words(p.updated_at)%> ago<br>
-    <%= p.comments.count %> comments |
-    <%= p.get_upvotes.size %> Likes
-  </p>
-<br>
+    <div class="post">
+      <a href = "/view_post?post_id=<%=p.id%>">
+        <div class="post_image">
+            <%= image_tag p.image.url(:small) %>
+        </div>
+        <div class="post_content">
+          <div class="title">
+            <h2><i><b><%=p.title%></i></b></h2>
+          </div>
+      </a>
+        <div class="data clearfix">
+          <p class="username">
+            Shared by ID #<%=p.user_id%> -- about <%=time_ago_in_words(p.updated_at)%> ago<br>
+          </p>
+          <p class="buttons">
+            <span>
+              <i class="fa fa-comments"></i>
+              <%= p.comments.count %>
+            </span>
+            <span>
+              <i class="fa fa-thumbs-up"></i>
+              <%= p.get_upvotes.size %>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
 <button style=" margin: 10px"><%=link_to "NEW POST", 'new'%></button>
