@@ -1,7 +1,4 @@
-<br>
-<h1>Show Page</h1>
-<hr>
-
+<h1>Timeline</h1><hr>
 <div id="posts">
   <% @post.each do |p| %>
     <div class="post">
@@ -33,4 +30,4 @@
     </div>
   <% end %>
 </div>
-<button style=" margin: 10px"><%=link_to "NEW POST", 'new'%></button>
+<button name="new_post"><%=link_to "NEW POST", 'new'%></button>

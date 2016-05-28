@@ -16,18 +16,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+	<%= render partial: 'layouts/header' %><br>
   <div class="wrapper">
-		<%= render partial: 'layouts/header' %>
-
-			<p></p>
-			<p></p>
-			<p></p>
-			<!-- <div clsas= "main-page-content <%= controller.controller_name %>">
-			</div>  -->
-			<%= yield %>
-
-		<%= render 'layouts/footer' %>
+		<%= yield %>
 	</div>
-	</body>
-
-	</html>
+	<%= render 'layouts/footer' %>
+</body>
+</html>

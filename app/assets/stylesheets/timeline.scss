@@ -23,9 +23,10 @@ textarea{
     border-width: 2px;
     background-color: white;
     width: 90%;
-    height: 170px;
+    height: 270px;
     padding: 15px;
     display: block;
+    margin: 20px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -57,7 +58,7 @@ input {
   }
   &[name=title] {
     padding: 10px;
-    margin: 10px;
+    margin: 20px;
     text-align: center;
     width: 50%;
     display: block;
@@ -120,4 +121,11 @@ li[name=post_block] {
   background-color: #f6f6f6;
   padding: 10px;
   font-size: 0.5em;
+}
+
+button[name=new_post] {
+  margin: 10px;
+  position: absolute;
+  right: 10%;
+  top: 100px;
 }
