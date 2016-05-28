@@ -4,7 +4,7 @@
     <div class="post">
       <a href = "/view_post?post_id=<%=p.id%>">
         <div class="post_image">
-            <%= image_tag p.image.url(:small) %>
+          <%= image_tag p.image.url(:small), :style => "height: 250px" %>
         </div>
         <div class="post_content">
           <div class="title">

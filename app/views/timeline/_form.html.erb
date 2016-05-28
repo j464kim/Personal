@@ -8,15 +8,8 @@
       <input type = "submit" name="submit_comment" style="margin: 5px">
     <% end %>
   </left_col>
-
   <right_col>
-  <ol>
-    <% @comments.each do |c| %>
-      <li><p>User ID #<%=c.user_id%> : <b><%= c.msg %></b></p>
-        <a href = "/edit_comment?comment_id=<%=c.id%>" style="color: green">Edit</a>
-        <a href = "/destroy_comment?comment_id=<%=c.id%>" style="color: red">Delete</a>
-      </li><br>
-    <% end %>
-  </ol><br>
+
   </right_col><br>
 </ul>
+<br><br><br><br><br><br>
