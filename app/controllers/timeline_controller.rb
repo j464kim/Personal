@@ -46,8 +46,7 @@ class TimelineController < ApplicationController
   # this def behaves like a bridge
 
   # authenticate the post writer
-     @post = Post.find(params[:post_id])
-
+  @post = Post.find(params[:id])
  end
 
  def view_post
@@ -84,7 +83,7 @@ class TimelineController < ApplicationController
  end
 
  def destroy
-   @post = Post.find(params[:post_id])
+   @post = Post.find(params[:id])
    @comments = Comment.where(post_id: @post)
    # authenticate the post writer
    if current_user == @post.user

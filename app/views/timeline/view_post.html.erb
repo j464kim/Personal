@@ -8,7 +8,6 @@
         <%= image_tag @post.image.url(:medium) %>
         <input type="hidden" name="post_id" value="<%=@post.id%>">
         <!-- <%=@post.content%> displays original post content -->
-        <pre name="post_title"><%=@post.title%></pre>
         <pre name="post_content"><%=@post.content%></pre>
       <% end %>
     </div>
@@ -28,11 +27,8 @@
       </p><br>
       <!-- get method for destroy, set post_id as a param to pass in destroy action-->
       <% if @post.user == current_user %>
-        <%= link_to "Edit", edit_post_path(@post), class: "data" %>
-        <%= link_to "Delete", destroy_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "data" %>
-
-        <a href = "/edit_post?post_id=<%=@post.id%>"><button style="border-radius: 50%">Edit</button></a>
-        <a href = "/destroy?post_id=<%=@post.id%>"><button style="border-radius: 50%" >Delete</button></a>
+        <%= link_to "Edit", edit_post_path(:id => @post.id) , class: "data" %>
+        <%= link_to "Delete", destroy_path(:id => @post.id), data: { confirm: "Are you sure?" }, class: "data" %>
       <% end %><br><br>
       <ol>
         <% @comments.each do |c| %>
