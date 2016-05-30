@@ -2,9 +2,9 @@
 <div id="posts">
   <% @post.each do |p| %>
     <div class="post">
-      <a href = "/view_post?post_id=<%=p.id%>">
+      <a href = "/view_post?id=<%=p.id%>">
         <div class="post_image">
-          <%= image_tag p.image.url(:small), :style => "height: 250px" %>
+          <%= image_tag p.image.url(:small), :style => "heightauto" %>
         </div>
         <div class="post_content">
           <div class="title">
@@ -13,7 +13,7 @@
       </a>
         <div class="data clearfix">
           <p class="username">
-            Shared by ID #<%=p.user_id%> -- about <%=time_ago_in_words(p.updated_at)%> ago<br>
+            Shared by ID #<%=p.user_id%> -- about <%=time_ago_in_words(p.updated_at)%> ago
           </p>
           <p class="buttons">
             <span>

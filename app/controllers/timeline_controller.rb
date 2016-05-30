@@ -9,6 +9,12 @@ class TimelineController < ApplicationController
    @post = Post.all.order("updated_at DESC") # another way to list them in descending order
  end
 
+ def view_post
+   @post = Post.find(params[:id])
+   @comments = Comment.where(post_id: @post)
+   @random_post = Post.where.not(id: @post).order("RANDOM()").first
+ end
+
  def new
    @post = current_user.posts.build
  end
@@ -47,11 +53,6 @@ class TimelineController < ApplicationController
 
   # authenticate the post writer
   @post = Post.find(params[:id])
- end
-
- def view_post
-   @post = Post.find(params[:post_id])
-   @comments = Comment.where(post_id: @post)
  end
 
  def edit_comment

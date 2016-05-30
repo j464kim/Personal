@@ -1,12 +1,12 @@
 <div id="post_show">
   <h1><%=@post.title%></h1>
   <p class="username"> Shared by ID #<%=@post.user_id%> -- about <%=time_ago_in_words(@post.created_at)%> ago<br></p>
+
   <div class="clearfix">
     <div class="post_image_description">
       <%= form_tag '/view_post', method: "post" do %>
         <!-- to let update action know which post to be updated, -->
-        <%= image_tag @post.image.url(:medium) %>
-        <input type="hidden" name="post_id" value="<%=@post.id%>">
+        <%= link_to (image_tag @post.image.url(:medium)), view_post_path(:id => @post.id) %>
         <!-- <%=@post.content%> displays original post content -->
         <pre name="post_content"><%=@post.content%></pre>
       <% end %>
@@ -25,20 +25,20 @@
         <i class="fa fa-comments-o"></i>
         <%= pluralize(@post.comments.count, "Comment") %>
       </p><br>
-      <!-- get method for destroy, set post_id as a param to pass in destroy action-->
+      <!-- pass in :id param to 'Edit' and 'Destroy' action -->
       <% if @post.user == current_user %>
         <%= link_to "Edit", edit_post_path(:id => @post.id) , class: "data" %>
         <%= link_to "Delete", destroy_path(:id => @post.id), data: { confirm: "Are you sure?" }, class: "data" %>
       <% end %><br><br>
-      <ol>
-        <% @comments.each do |c| %>
-          <li><p>User ID #<%=c.user_id%> : <b><%= c.msg %></b></p>
-            <a href = "/edit_comment?comment_id=<%=c.id%>" style="color: green">Edit</a>
-            <a href = "/destroy_comment?comment_id=<%=c.id%>" style="color: red">Delete</a>
-          </li><br>
-        <% end %>
-      </ol><br>
+
+      <% @comments.each do |c| %>
+        <li><p>User ID #<%=c.user_id%> : <b><%= c.msg %></b></p>
+          <a href = "/edit_comment?comment_id=<%=c.id%>" style="color: green">Edit</a>
+          <a href = "/destroy_comment?comment_id=<%=c.id%>" style="color: red">Delete</a>
+        </li><br>
+      <% end %>
     </div>
+    <%= render 'random_post' %>
   </div>
   <%= render 'form' %>
 </div>
