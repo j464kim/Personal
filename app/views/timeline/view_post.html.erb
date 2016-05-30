@@ -6,7 +6,8 @@
     <div class="post_image_description">
       <%= form_tag '/view_post', method: "post" do %>
         <!-- to let update action know which post to be updated, -->
-        <%= link_to (image_tag @post.image.url(:medium)), view_post_path(:id => @post.id) %>
+        <%= link_to (image_tag @post.image.url(:medium)), view_post_path(:post_id => @post.id) %>
+
         <!-- <%=@post.content%> displays original post content -->
         <pre name="post_content"><%=@post.content%></pre>
       <% end %>

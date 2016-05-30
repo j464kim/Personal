@@ -1,6 +1,6 @@
 <h1 name="header">EDIT POST #<%=@post.id%></h1>
 
-<%= form_tag '/update_post', method: "post" do%>
+<%= form_tag '/update_post', method: "post" do %>
   <!-- to let update action know which post to be updated, -->
   <input type="hidden" name="post_id" value="<%=@post.id%>">
   <!-- <%=@post.content%> displays original post content -->

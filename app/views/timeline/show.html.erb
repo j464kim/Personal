@@ -2,7 +2,7 @@
 <div id="posts">
   <% @post.each do |p| %>
     <div class="post">
-      <a href = "/view_post?id=<%=p.id%>">
+      <a href = "/view_post?post_id=<%=p.id%>">
         <div class="post_image">
           <%= image_tag p.image.url(:small), :style => "heightauto" %>
         </div>

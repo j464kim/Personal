@@ -2,12 +2,12 @@
   <h3>Random Inspiration</h3>
   <div class="post">
     <div class="post_image">
-      <%= link_to (image_tag @random_post.image.url(:medium)), view_post_path(:id => @random_post.id) %>
+      <%= link_to (image_tag @random_post.image.url(:medium)), view_post_path(:post_id => @random_post.id) %>
     </div>
     <div class="post_content">
       <div class="title">
         <h2>
-          <%= link_to @random_post.title, view_post_path(:id => @random_post.id) %>
+          <%= link_to @random_post.title, view_post_path(:post_id => @random_post.id) %>
         </h2>
       </div>
       <div class="data clearfix">

@@ -10,7 +10,7 @@ class TimelineController < ApplicationController
  end
 
  def view_post
-   @post = Post.find(params[:id])
+   @post = Post.find(params[:post_id])
    @comments = Comment.where(post_id: @post)
    @random_post = Post.where.not(id: @post).order("RANDOM()").first
  end
