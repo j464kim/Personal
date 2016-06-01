@@ -56,16 +56,49 @@ div[id=callouts] {
 		width: 33.3333%;
 		padding: 1.5rem 2.5%;
 		float: left;
-		h2 {
 
+
+		@media screen and (max-width: 950px) {
+			width: 50%;
+		}
+		@media screen and (max-width: 500px) {
+			width: 100%;
+		}
+
+		h2 {
 			color: white;
 			margin-bottom: 0;
 		}
+
 		p {
 			color: rgba(250, 250, 250, 0.7);
 		}
 	}
+	.callout-last {
+
+		text-align: center;
+		width: 33.3333%;
+		padding: 1.5rem 2.5%;
+		float: left;
+
+
+		@media screen and (max-width: 950px) {
+			width: auto;
+		}
+
+		h2 {
+			color: white;
+			margin-bottom: 0;
+		}
+
+		p {
+			color: rgba(250, 250, 250, 0.7);
+		}
+	}
+
 }
+
+
 
 div[id=bottom_cta] {
 	text-align: center;

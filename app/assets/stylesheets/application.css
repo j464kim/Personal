@@ -1,6 +1,8 @@
 /*
-*= require_tree .
 *= require_self
+*= require_tree .
+
+
  */
 
 /*
@@ -10,6 +12,7 @@
 @import 'welcome.scss';
 @import 'home.scss';
 @import 'post.scss';
+@import 'responsive.css';
 */
 config.assets.precompile += [
       'hella-tite.css'
