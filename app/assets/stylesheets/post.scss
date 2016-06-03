@@ -5,10 +5,10 @@
 		float: left;
 		margin-right: 5%;
 
-		@media screen and (max-width: 1000px) {
-			width: 55%;
+		@media screen and (max-width: 1200px) {
+			width: 60%;
 		}
-		@media screen and (max-width: 600px) {
+		@media screen and (max-width: 800px) {
 			width: 100%;
 			float: none;
 		}
@@ -18,11 +18,11 @@
 		width: 20%;
 		float: left;
 
-		@media screen and (max-width: 1000px) {
-			width: 40%;
+		@media screen and (max-width: 1200px) {
+			width: 35%;
 			float: right;
 		}
-		@media screen and (max-width: 600px) {
+		@media screen and (max-width: 800px) {
 			width: 100%;
 			float: none;
 		}
@@ -58,12 +58,13 @@
 		margin-top: -3.2rem;
 		float: left;
 
-		@media screen and (max-width: 1000px) {
-			width: 40%;
+		@media screen and (max-width: 1200px) {
+			width: 35%;
 			float: left;
 			margin: 0;
+
 		}
-		@media screen and (max-width: 600px) {
+		@media screen and (max-width: 800px) {
 			display: none;
 		}
 
@@ -80,7 +81,7 @@
 				height: auto;
 				overflow: hidden;
 
-				@media screen and (max-width: 1000px) {
+				@media screen and (max-width: 1200px) {
 					height: 18vw;
 				}
 
@@ -147,7 +148,16 @@
 
 #comments {
 	padding-bottom: 4rem;
-	width: 50%;
+	width: 48%;
+
+	@media screen and (max-width: 1200px) {
+		width: 64%;
+	}
+
+	@media screen and (max-width: 800px) {
+		width: 100%;
+	}
+
 	.comment_count {
 		border-bottom: 1px solid #E9E9E9;
 		padding-bottom: .5rem;
