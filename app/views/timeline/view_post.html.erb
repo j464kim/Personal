@@ -9,7 +9,7 @@
         <%= link_to (image_tag @post.image.url(:medium)), view_post_path(:post_id => @post.id) %>
 
         <!-- <%=@post.content%> displays original post content -->
-        <textarea name="post_content"><%=@post.content%></textarea>
+        <pre name="post_content"><%=@post.content%></pre>
       <% end %>
     </div>
 
