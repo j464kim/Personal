@@ -1,13 +1,34 @@
 #post_show {
 	padding-top: 2rem;
 	.post_image_description {
-		width: 50%;
+		width: 45%;
 		float: left;
 		margin-right: 5%;
+
+		@media screen and (max-width: 1000px) {
+			width: 55%;
+		}
+		@media screen and (max-width: 600px) {
+			width: 100%;
+			float: none;
+		}
+
 	}
 	.post_data {
-		width: 15%;
+		width: 20%;
 		float: left;
+
+		@media screen and (max-width: 1000px) {
+			width: 40%;
+			float: right;
+		}
+		@media screen and (max-width: 600px) {
+			width: 100%;
+			float: none;
+		}
+
+
+
 		.button {
 			width: 100%;
 			display: inline-block;
@@ -36,16 +57,34 @@
 		margin-left: 5%;
 		margin-top: -3.2rem;
 		float: left;
+
+		@media screen and (max-width: 1000px) {
+			width: 40%;
+			float: left;
+			margin: 0;
+		}
+		@media screen and (max-width: 600px) {
+			display: none;
+		}
+
+
+
 		h3 {
-			font-size: 1rem;
+			font-size: 1.5rem;
 		}
 		.post {
 			background: #F8F9FA;
 			border: 1px solid #E4E4E4;
 			border-radius: 0.3rem;
 			.post_image {
-				height: 200px;
+				height: auto;
 				overflow: hidden;
+
+				@media screen and (max-width: 1000px) {
+					height: 18vw;
+				}
+
+
 				img {
 					width: 100%;
 					border-radius: .3rem .3rem 0 0;

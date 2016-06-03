@@ -32,7 +32,9 @@
         <%= link_to "Delete", destroy_path(:id => @post.id), data: { confirm: "Are you sure?" }, class: "data" %>
       <% end %><br>
 
-    <h4>Comments</h4>
+    <% if @post.comments.count != 0 %>
+    <h4>[ Comments ]</h4>
+    <% end %>
       <% @comments.each do |c| %>
           <li><p>User ID #<%=c.user_id%> : <b><%= c.msg %></b></p>
             <% if c.user == current_user %>

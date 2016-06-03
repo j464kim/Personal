@@ -16,9 +16,22 @@
 		margin: 1rem 1.5%;
 		border: 1px solid #E4E4E4;
 		border-radius: 0.3rem;
+
+		@media screen and (max-width: 950px) {
+			width: 45%;
+		}
+		@media screen and (max-width: 550px) {
+			width: 90%;
+		}
+
 		.post_image {
-			height: 200px;
+			height: auto;
 			overflow: hidden;
+
+			@media screen and (max-width: 550px) {
+				height: 200px;
+			}
+
 			img {
 				width: 100%;
 				border-radius: .3rem .3rem 0 0;
