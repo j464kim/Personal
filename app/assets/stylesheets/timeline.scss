@@ -7,19 +7,34 @@
 textarea{
   &[name=title] {
     font-family: 'Indie Flower', 'Hanna', sans-serif;
-    border-color: red;
-    background-color: white;
+    border-color: black;
+    border-width: 0;
+    background-color: #F8F8F8;
+    text-align: center;
     width: 70%;
     height: 40px;
-    margin: 5px auto;
+    margin: 10px auto;
     padding: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    resize: none;
+  }
+  &[name=content] {
+    font-family: 'Indie Flower', 'Hanna', sans-serif;
+    border-width: 0px;
+    background-color: #F8F8F8 ;
+    width: 90%;
+    height: 270px;
+    padding: 10px;
+    display: block;
+    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    resize: none;
   }
   &[name=comment_content] {
     font-family: 'Indie Flower', 'Hanna', sans-serif;
-    border-color: red;
     background-color: white;
     width: 90%;
     height: 40px;
@@ -45,10 +60,12 @@ input {
     color: white;
   }
   &[name=title] {
+    background-color: #F8F8F8;
+    border-width: 0;
     padding: 10px;
     margin: 10px;
     text-align: center;
-    width: 50%;
+    width: 70%;
     display: block;
     margin-left: auto;
     margin-right: auto;
