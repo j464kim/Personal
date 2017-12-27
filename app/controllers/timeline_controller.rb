@@ -7,12 +7,18 @@ class TimelineController < ApplicationController
 
   def show
     @post = Post.all.order("updated_at DESC") # another way to list them in descending order
+    logger.info @post
   end
 
   def view_post
     @post = Post.find(params[:post_id])
     @comments = Comment.where(post_id: @post)
-    @random_post = Post.where.not(id: @post).order("RANDOM()").first
+    if Post.where.not(id: @post).count == 0
+      @random_post = @post
+      puts @random_post
+    else
+      @random_post = Post.where.not(id: @post).order("RANDOM()").first
+    end
   end
 
   def new
