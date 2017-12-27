@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+ruby '2.2.0'
 
 gem 'whenever', :require => false
 gem 'rails', '4.2.5'
@@ -20,6 +20,8 @@ gem 'haml-rails', '~> 0.9.0'
 gem "binding_of_caller"
 gem 'better_errors', '~> 2.1', '>= 2.1.1'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'mysql2', '~> 0.4.10'
+gem 'yaml_db'
 
 #creating a group means we are only using database
 #called 'sqlite3' when in test case

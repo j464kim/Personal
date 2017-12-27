@@ -9,17 +9,44 @@ default: &default
   pool: 5
   timeout: 5000
 
+#development:
+#  <<: *default
+#  database: db/development.sqlite3
+
 development:
-  <<: *default
-  database: db/development.sqlite3
+  adapter: mysql2
+  host: localhost
+  port: 3306
+  encoding: utf8
+  database: personal
+  username: root
+  password: "secret"
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
+#test:
+#  <<: *default
+#  database: db/test.sqlite3
+
 test:
-  <<: *default
-  database: db/test.sqlite3
+  adapter: mysql2
+  host: 127.0.0.1
+  port: 3306
+  encoding: utf8
+  database: personal
+  username: root
+  password: "secret"
+
+#production:
+#  <<: *default
+#  database: db/production.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: mysql2
+  host: localhost
+  port: 3306
+  encoding: utf8
+  database: personal
+  username: root
+  password: "secret"
