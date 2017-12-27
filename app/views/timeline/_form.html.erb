@@ -1,17 +1,18 @@
 <ul>
-<hr>
-<div id="comments">
+  <hr>
+  <div id="comments">
 
-    <%=form_tag '/comment', method: "post" do %>
-      <!-- name = "here come parameter_name to pass in the action" -->
-      <input type = "hidden" name = "post_id" value = "<%=@post.id%>">
-      <textarea name ="comment_content" placeholder="comment here"></textarea>
-      <input type = "submit" name="submit_comment" style="margin: 5px">
+    <%= form_tag '/comment', method: "post" do %>
+        <!-- name = "here come parameter_name to pass in the action" -->
+        <input type="hidden" name="post_id" value="<%= @post.id %>">
+        <textarea name="comment_content" placeholder="comment here"></textarea>
+        <input type="submit" name="submit_comment" style="margin: 5px">
     <% end %>
 
-</div>
+  </div>
   <right_col>
 
-  </right_col><br>
+  </right_col>
+  <br>
 </ul>
 <br><br><br><br><br><br>

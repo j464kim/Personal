@@ -28,12 +28,12 @@ gem 'yaml_db'
 #:development means on our computer
 
 group :development, :test do
-	gem 'sqlite3' #data_base that comes with Rails
+  gem 'sqlite3' #data_base that comes with Rails
 end
 
 group :production do
-	gem 'pg'
-	gem 'rails_12factor'
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development, :test do

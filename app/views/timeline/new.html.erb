@@ -1,6 +1,6 @@
 <%= form_tag '/write', method: "post", multipart: true do %>
-  <input name="title" placeholder="title here" type="text"></input>
-  <textarea name="content" placeholder="post here"></textarea><br>
-  <%= file_field_tag :image %>
-  <input name="submit_post" type="submit"></input>
+    <input name="title" placeholder="title here" type="text"></input>
+    <textarea name="content" placeholder="post here"></textarea><br>
+    <%= file_field_tag :image %>
+    <input name="submit_post" type="submit"></input>
 <% end %>

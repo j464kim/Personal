@@ -1,43 +1,49 @@
 <head>
-<h1 name="header">TIME-LINE<h1>
+  <h1 name="header">TIME-LINE</h1>
 </head>
 
-  <!-- use 'post' rather than 'post' since 'get' exposes content to submit on domains and cannot allow more than 250 letters
-  to do this, routes.rb & timeline_controller.rb modified -->
-  <!-- form_tag (associated with 'post' method) for default protection -->
+<!-- use 'post' rather than 'post' since 'get' exposes content to submit on domains and cannot allow more than 250 letters
+to do this, routes.rb & timeline_controller.rb modified -->
+<!-- form_tag (associated with 'post' method) for default protection -->
 <left_col>
-<%= form_tag '/write', method: "post" do%>
-  <input type="text" name="post_title" placeholder="title here">
-  <textarea name="post_content" placeholder="post here"></textarea><br>
-  <input type = "submit" name=submit_post>
-<% end %>
+  <%= form_tag '/write', method: "post" do %>
+      <input type="text" name="post_title" placeholder="title here">
+      <textarea name="post_content" placeholder="post here"></textarea><br>
+      <input type="submit" name=submit_post>
+  <% end %>
 </left_col>
 
 <right_col>
-<ul>
-  <% @posts.each do |p| %>
-    <li name = "post_block"><%=p.user.email%>
-      <!-- get method for destroy, set post_id as a param to pass in destroy action-->
-      <a href = "/edit_post?post_id=<%=p.id%>"><button style="border-radius: 50%">Edit</button></a>
-      <a href = "/destroy?post_id=<%=p.id%>"><button style="border-radius: 50%" >Delete</button></a>
-      <p>title: <%= p.title %></p>
-      <pre><%= p.content %></pre>
+  <ul>
+    <% @posts.each do |p| %>
+        <li name="post_block"><%= p.user.email %>
+          <!-- get method for destroy, set post_id as a param to pass in destroy action-->
+          <a href="/edit_post?post_id=<%= p.id %>">
+            <button style="border-radius: 50%">Edit</button>
+          </a>
+          <a href="/destroy?post_id=<%= p.id %>">
+            <button style="border-radius: 50%">Delete</button>
+          </a>
+          <p>title: <%= p.title %></p>
+          <pre><%= p.content %></pre>
 
-      <!-- Here it goes comments -->
-        <!-- name = "here come parameter_name to pass in the action" -->
-        <input type = "hidden" name = "post_id" value = "<%=p.id%>">
-        <textarea name ="comment_content" placeholder="comment here"></textarea>
-        <input type = "submit" name="submit_comment">
+          <!-- Here it goes comments -->
+          <!-- name = "here come parameter_name to pass in the action" -->
+          <input type="hidden" name="post_id" value="<%= p.id %>">
+          <textarea name="comment_content" placeholder="comment here"></textarea>
+          <input type="submit" name="submit_comment">
 
-      <ol>
-        <% p.comments.each do |c| %>
-          <li><%=c.user.email%> : <%= c.msg %>
-            <a href = "/edit_comment?comment_id=<%=c.id%>">Edit</a>
-            <a href = "/destroy_comment?comment_id=<%=c.id%>">Delete</a>
-          </li>
-        <% end %>
-      </ol><br>
-    </li><br>
-  <% end %>
-</ul> <!-- end of a set of a post & comments -->
+          <ol>
+            <% p.comments.each do |c| %>
+                <li><%= c.user.email %> : <%= c.msg %>
+                  <a href="/edit_comment?comment_id=<%= c.id %>">Edit</a>
+                  <a href="/destroy_comment?comment_id=<%= c.id %>">Delete</a>
+                </li>
+            <% end %>
+          </ol>
+          <br>
+        </li>
+        <br>
+    <% end %>
+  </ul> <!-- end of a set of a post & comments -->
 </right_col>

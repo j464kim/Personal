@@ -1,26 +1,27 @@
 <div id="post_show">
-  <h1><%=@post.title%></h1>
-  <p class="username"> Shared by ID #<%=@post.user_id%> -- about <%=time_ago_in_words(@post.created_at)%> ago<br></p>
+  <h1><%= @post.title %></h1>
+  <p class="username"> Shared by ID #<%= @post.user_id %> -- about <%= time_ago_in_words(@post.created_at) %> ago<br>
+  </p>
 
   <div class="clearfix">
     <div class="post_image_description">
       <%= form_tag '/view_post', method: "post" do %>
-        <!-- to let update action know which post to be updated, -->
-        <%= link_to (image_tag @post.image.url(:medium)), view_post_path(:post_id => @post.id) %>
+          <!-- to let update action know which post to be updated, -->
+          <%= link_to (image_tag @post.image.url(:medium)), view_post_path(:post_id => @post.id) %>
 
-        <!-- <%=@post.content%> displays original post content -->
-        <pre name="post_content"><%=@post.content%></pre>
+          <!-- <%= @post.content %> displays original post content -->
+          <pre name="post_content"><%= @post.content %></pre>
       <% end %>
     </div>
 
     <div class="post_data">
       <%= link_to like_timeline_path(@post), method: :get, class: "data" do %>
-        <i class="fa fa-thumbs-o-up"></i>
-        <%= pluralize(@post.get_upvotes.size, "Like") %>
+          <i class="fa fa-thumbs-o-up"></i>
+          <%= pluralize(@post.get_upvotes.size, "Like") %>
       <% end %>
       <%= link_to dislike_timeline_path(@post), method: :get, class: "data" do %>
-        <i class="fa fa-thumbs-o-down"></i>
-        <%= pluralize(@post.get_downvotes.size, "Dislike") %>
+          <i class="fa fa-thumbs-o-down"></i>
+          <%= pluralize(@post.get_downvotes.size, "Dislike") %>
       <% end %>
       <p class="data">
         <i class="fa fa-comments-o"></i>
@@ -28,18 +29,18 @@
       </p>
       <!-- pass in :id param to 'Edit' and 'Destroy' action -->
       <% if @post.user == current_user %>
-        <%= link_to "Edit", edit_post_path(:id => @post.id) , class: "data" %>
-        <%= link_to "Delete", destroy_path(:id => @post.id), data: { confirm: "Are you sure?" }, class: "data" %>
+          <%= link_to "Edit", edit_post_path(:id => @post.id), class: "data" %>
+          <%= link_to "Delete", destroy_path(:id => @post.id), data: {confirm: "Are you sure?"}, class: "data" %>
       <% end %><br>
 
-    <% if @post.comments.count != 0 %>
-    <h4>[ Comments ]</h4>
-    <% end %>
+      <% if @post.comments.count != 0 %>
+          <h4>[ Comments ]</h4>
+      <% end %>
       <% @comments.each do |c| %>
-          <li><p>User ID #<%=c.user_id%> : <b><%= c.msg %></b></p>
+          <li><p>User ID #<%= c.user_id %> : <b><%= c.msg %></b></p>
             <% if c.user == current_user %>
-              <a href = "/edit_comment?comment_id=<%=c.id%>" style="color: green">Edit</a> |
-              <a href = "/destroy_comment?comment_id=<%=c.id%>" style="color: red">Delete</a>
+                <a href="/edit_comment?comment_id=<%= c.id %>" style="color: green">Edit</a> |
+                <a href="/destroy_comment?comment_id=<%= c.id %>" style="color: red">Delete</a>
             <% end %>
           </li>
       <% end %>
